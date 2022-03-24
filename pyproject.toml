@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "fancy_fashion"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pylint = "^2.12.2"
+click = "^8.0.4"
+
+[tool.poetry.dev-dependencies]
+pre-commit = "^2.17.0"
+black = "^22.1.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+fancy-fashion = 'fancy_fashion.cli:cli'
