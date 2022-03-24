@@ -22,5 +22,3 @@ docker-push: docker-build
 .PHONY: format
 format:
 	poetry run black .
-
-
