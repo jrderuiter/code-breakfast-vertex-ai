@@ -1,10 +1,9 @@
 from pathlib import Path
 
-import tensorflow as tf
-from tensorflow.keras.applications import MobileNet
-from tensorflow.keras import layers, Model, preprocessing
 import matplotlib.pyplot as plt
-
+import tensorflow as tf
+from tensorflow.keras import Model, layers, preprocessing
+from tensorflow.keras.applications import MobileNet
 
 TARGET_DIR = Path("data")
 
@@ -12,13 +11,9 @@ TARGET_DIR = Path("data")
 tf.config.run_functions_eagerly(True)
 
 
-base_model = MobileNet(
-    include_top=False,
-    input_shape=(128, 128, 3)
-)
+base_model = MobileNet(include_top=False, input_shape=(128, 128, 3))
 for layer in base_model.layers:
     layer.trainable = False
-
 
 
 def make_custom_model(base_model):
@@ -36,9 +31,7 @@ model = make_custom_model(base_model)
 model.compile(optimizer="Adam", loss="categorical_crossentropy", metrics=["accuracy"])
 
 train_datagenerator = preprocessing.image_dataset_from_directory(
-    TARGET_DIR / 'train',
-    label_mode='categorical',
-    image_size=(128, 128)
+    TARGET_DIR / "train", label_mode="categorical", image_size=(128, 128)
 )
 model.fit(train_datagenerator, verbose=1, epochs=2, steps_per_epoch=10)
 
@@ -48,6 +41,7 @@ def show(sample):
     plt.imshow(sample.astype(int))
     plt.show()
     # return ax
+
 
 train_batch, _ = next(train_datagenerator.as_numpy_iterator())
 # plt.imshow(train_batch[1].reshape(28,28))
@@ -60,9 +54,7 @@ train_batch, _ = next(train_datagenerator.as_numpy_iterator())
 # print(predictions.argmax(axis=1))
 
 test_datagenerator = preprocessing.image_dataset_from_directory(
-    TARGET_DIR / 'test',
-    label_mode='categorical',
-    image_size=(128, 128)
+    TARGET_DIR / "test", label_mode="categorical", image_size=(128, 128)
 )
 
 loss, accuracy = model.evaluate(test_datagenerator)
@@ -71,9 +63,7 @@ print(f"Accuracy: {accuracy}")
 
 
 actual_datagenerator = preprocessing.image_dataset_from_directory(
-    TARGET_DIR / 'actual',
-    label_mode=None,
-    image_size=(128, 128)
+    TARGET_DIR / "actual", label_mode=None, image_size=(128, 128)
 )
 
 predictions = model.predict(actual_datagenerator)

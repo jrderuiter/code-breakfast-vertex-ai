@@ -1,8 +1,9 @@
 import datetime
 import random
 from pathlib import Path
-from tensorflow.keras.datasets import fashion_mnist
+
 from PIL import Image
+from tensorflow.keras.datasets import fashion_mnist
 
 N_TRAIN = 500
 N_TEST = 100
@@ -32,7 +33,9 @@ def save_images(save_dir: Path, images: list, prefix: str = ""):
         image.save(save_dir / f"{prefix}{ii}.jpg")
 
 
-def save_train_test_images(target_dir: Path, x, y, label: str, n_train: int, train_or_test):
+def save_train_test_images(
+    target_dir: Path, x, y, label: str, n_train: int, train_or_test
+):
     is_label = y == REVERSE_MAPPING[label]
     images = x[is_label]
     label_dir = target_dir / train_or_test / label
@@ -70,11 +73,17 @@ if __name__ == "__main__":
     actual_labels = ["shirt", "sneaker", "bag", "dress"]
 
     for label in train_labels:
-        save_train_test_images(TARGET_DIR, x_train, y_train, label, N_TRAIN, train_or_test="train")
+        save_train_test_images(
+            TARGET_DIR, x_train, y_train, label, N_TRAIN, train_or_test="train"
+        )
 
     for label in test_labels:
-        save_train_test_images(TARGET_DIR, x_test, y_test, label, N_TEST, train_or_test="test")
+        save_train_test_images(
+            TARGET_DIR, x_test, y_test, label, N_TEST, train_or_test="test"
+        )
 
     n_per_actual_label = len(actual_labels) // N_ACTUAL
 
-    save_actuals(TARGET_DIR / "actuals", x_test, y_test, labels=actual_labels, n_per_label=10)
+    save_actuals(
+        TARGET_DIR / "actuals", x_test, y_test, labels=actual_labels, n_per_label=10
+    )
