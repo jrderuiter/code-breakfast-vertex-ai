@@ -2,7 +2,6 @@
 
 In this code breakfast, we'll introduce you to the basic components of Vertex AI and show you how to run (custom) training jobs on Vertex AI using the Kubeflow Pipeline SDK.
 
-
 ## Getting started
 
 For this code breakfast, we'll use a cloud-based JupyterLab environment for developing and running code on Vertex AI. This JupyterLab environment runs on your own personal VM in Vertex Workbench. To find your VM and open JupyterLab, follow these steps:
@@ -26,7 +25,6 @@ This should open a new tab in your browser with JupyterLab. To set up the code f
 Open the notebook `notebooks/1-run-local.ipynb` and run through the exercises in the notebook.
 
 ### Exercise 2 - Run the model in Vertex Pipelines
-
 
 Open the notebook `notebooks/2-run-pipeline.ipynb` and run through the exercises in the notebook.
 
