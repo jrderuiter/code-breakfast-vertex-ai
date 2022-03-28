@@ -156,3 +156,7 @@ cython_debug/
 
 # Pyenv
 .python-version
+
+# KFP
+_artifacts
+_components
