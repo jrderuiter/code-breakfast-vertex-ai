@@ -35,3 +35,7 @@ python-lint:
 .PHONY: python-test
 python-test:
 	poetry run pytest
+
+.PHONY: generate-data
+generate-data: python-init
+	poetry run scripts/generate_data.py && gsutil -m cp -r ./data/ gs://gdd-cb-vertex-fashion-inputs/

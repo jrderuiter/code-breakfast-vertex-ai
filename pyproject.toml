@@ -5,7 +5,7 @@ description = ""
 authors = ["Your Name <you@example.com>"]
 
 [tool.poetry.dependencies]
-python = ">=3.7,<3.11"
+python = ">=3.8,<3.11"
 tensorflow = "^2.8.0"
 Pillow = "^9.0.1"
 matplotlib = "^3.5.1"
@@ -13,8 +13,10 @@ typer = "^0.4.0"
 joblib = "^1.1.0"
 kfp = "^1.8.11"
 google-cloud-aiplatform = "^1.11.0"
+pandas = "^1.4.1"
+pyarrow = "^7.0.0"
 
-[tool.poetry.group.dev.dependencies]
+[tool.poetry.dev-dependencies]
 black = "^22.1.0"
 pre-commit = "^2.17.0"
 ipykernel = "^6.9.2"
