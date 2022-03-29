@@ -11,19 +11,8 @@ N_ACTUAL = 50
 TARGET_DIR = Path("data")
 TARGET_DIR.mkdir(exist_ok=True)
 
-TARGET_MAPPING = {
-    0: "tshirttop",
-    1: "trouser",
-    2: "pullover",
-    3: "dress",
-    4: "coat",
-    5: "sandal",
-    6: "shirt",
-    7: "sneaker",
-    8: "bag",
-    9: "ankle_boot",
-}
-REVERSE_MAPPING = {v: k for k, v in TARGET_MAPPING.items()}
+
+from fancy_fashion.dataset import REVERSE_MAPPING
 
 
 def save_images(save_dir: Path, images: list, prefix: str = ""):

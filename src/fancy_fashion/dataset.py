@@ -6,16 +6,11 @@ from PIL import Image
 from tensorflow.keras.datasets import fashion_mnist
 
 LABEL_MAPPING = {
-    0: "tshirttop",
-    1: "trouser",
-    2: "pullover",
+    0: "bag",
+    1: "shirt",
+    2: "sneaker",
     3: "dress",
-    4: "coat",
-    5: "sandal",
-    6: "shirt",
-    7: "sneaker",
-    8: "bag",
-    9: "ankle_boot",
+    4: "trouser",
 }
 
 REVERSE_MAPPING = {v: k for k, v in LABEL_MAPPING.items()}
