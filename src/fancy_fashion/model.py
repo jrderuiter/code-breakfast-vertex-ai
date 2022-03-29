@@ -57,11 +57,14 @@ def generate_predictions(model, predict_data_dir):
     """Generates predictions for a dataset with the given model."""
 
     predict_data = preprocessing.image_dataset_from_directory(
-        predict_data_dir, label_mode=None, image_size=(128, 128), shuffle=False,
+        predict_data_dir,
+        label_mode=None,
+        image_size=(128, 128),
+        shuffle=False,
     )
     predictions = model.predict(predict_data)
 
     return [
-        {"filename": filename.split("/")[-1], "prediction": pred} for
-        filename, pred in zip(predict_data.file_paths, predictions.argmax(axis=1))
+        {"filename": filename.split("/")[-1], "prediction": pred}
+        for filename, pred in zip(predict_data.file_paths, predictions.argmax(axis=1))
     ]
